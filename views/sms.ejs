@@ -1,0 +1,44 @@
+<!-- views/sms.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Notifications</title>
+    <link rel="stylesheet" href="/css/sms.css">
+</head>
+<body>
+    <header>
+        <h1>SMS Notifications</h1>
+        <!-- Link back to Dashboard -->
+        <a href="/dashboard">Back to Dashboard</a>
+
+    </header>
+
+    <main>
+        <section id="sms-data">
+            <h2>SMS History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sender</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                        <th>Timestamp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% notifications.forEach(notification => { %>
+                    <tr>
+                        <td><%= notification.sender %></td>
+                        <td><%= notification.title %></td>
+                        <td><%= notification.body %></td>
+                        <td><%= notification.timestamp %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>

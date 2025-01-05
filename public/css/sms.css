@@ -1,0 +1,51 @@
+<style>
+            /* Copy the same styles from the above code */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f7fc;
+                color: #333;
+            }
+    
+            header {
+                background-color: #4CAF50;
+                padding: 15px;
+                color: white;
+                text-align: center;
+            }
+    
+            header h1 {
+                font-size: 2rem;
+            }
+    
+            #sms-data {
+                margin-top: 20px;
+            }
+    
+            #sms-data table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+    
+            #sms-data th, #sms-data td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+    
+            #sms-data th {
+                background-color: #f2f2f2;
+            }
+    
+            footer {
+                margin-top: 30px;
+                text-align: center;
+                padding: 10px 0;
+                background-color: #f4f7fc;
+            }
+        </style>

