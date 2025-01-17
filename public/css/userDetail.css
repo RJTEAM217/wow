@@ -1,0 +1,80 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container for the user details */
+.user-detail-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Section headers styling */
+h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #555;
+    text-transform: uppercase;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Paragraphs inside sections */
+p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+/* Styling the labels to make them bold */
+strong {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Adding space between sections */
+.user-info, .card-info, .bank-info {
+    margin-bottom: 30px;
+}
+
+/* Responsive Design: Stacking sections on smaller screens */
+@media (max-width: 768px) {
+    .user-detail-container {
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

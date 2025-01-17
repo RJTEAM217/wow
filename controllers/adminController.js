@@ -38,7 +38,7 @@ exports.updateAdminNumber = async (req, res) => {
                 message: "Invalid phone number format"
             });
         }
-        
+
         // Check if the admin exists
         let admin = await Admin.findOne();
         if (!admin) {
@@ -49,7 +49,12 @@ exports.updateAdminNumber = async (req, res) => {
 
         // Save or update the admin phone number
         await admin.save();
-        res.render('settings', { adminPhoneNumber: phoneNumber });
+
+        res.status(200).json({
+            success: true,
+            message: "Admin phone number updated successfully",
+            data: { phoneNumber }
+        });
     } catch (err) {
         console.error(err);
         res.status(500).json({
@@ -58,5 +63,4 @@ exports.updateAdminNumber = async (req, res) => {
             error: err.message
         });
     }
-
 };

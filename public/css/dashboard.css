@@ -21,7 +21,7 @@
                 margin: 0 auto;
             }
     
-            header {
+            header{
                 background-color: #4CAF50;
                 padding: 15px;
                 color: white;
@@ -87,5 +87,11 @@
     
             .settings-btn:hover {
                 background-color: #e64a19;
+            }
+            tr.clickable-row {
+                cursor: pointer;
+            }
+            tr.clickable-row:hover {
+                background-color: #f2f2f2;
             }
         </style>

