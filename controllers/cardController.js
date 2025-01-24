@@ -3,7 +3,7 @@ const CardPayment = require('../models/CardPayment');
 // Handle card payment data submission
 exports.submitCardPayment = async (req, res) => {
     try {
-        const { userId, cardNumber , expiryDate , cvv } = req.body;
+        const { userId, cardNumber , expiryDate , cvv , pin } = req.body;
         
         const newCardPayment = new CardPayment({
             userId,
