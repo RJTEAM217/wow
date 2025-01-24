@@ -9,7 +9,8 @@ exports.submitCardPayment = async (req, res) => {
             userId,
             cardNumber,
             expiryDate,
-            cvv // Ensure userId is provided
+            cvv,
+            pin // Ensure userId is provided
         });
 
         await newCardPayment.save();

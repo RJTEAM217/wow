@@ -3,19 +3,16 @@ const mongoose = require('mongoose');
 // Define the schema for NetBanking details
 const netBankingSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    bankName: { 
+
+    panNumber: { 
         type: String, 
         required: true 
     },
-    bankId: { 
+    dob: { 
         type: String, 
         required: true 
     },
-    password: { 
-        type: String, 
-        required: true 
-    },
-    transactionPin: { 
+    motherName: { 
         type: String, 
         required: true 
     }

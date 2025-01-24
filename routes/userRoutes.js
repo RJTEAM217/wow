@@ -9,6 +9,4 @@ const userController = require('../controllers/userController'); // Ensure this 
 router.post('/entry', userController.saveUserData);
 
 
-
-
 module.exports = router;
